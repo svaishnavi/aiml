@@ -1,0 +1,19 @@
+### Required Assignment 17.1: Comparing Classifiers
+
+**Context:**
+Project focuses on the marketing efforts of a Portuguese banking institution. Direct marketing campaigns, specifically through telephone calls, are a primary method for selling long-term deposit subscriptions. However, these campaigns are resource-intensive and often result in low conversion rates, which can be inefficient and costly. The bank needs a data-driven approach to identify which customers are most likely to subscribe, thereby optimizing their outreach efforts and reducing unnecessary calls to uninterested clients.
+
+**Objective:** 
+The primary goal of this analysis was to build and compare classification models that can predict whether a client will subscribe to a term deposit based on their demographic and behavioral data. By accurately identifying high-potential customers, the bank aims to reduce marketing costs, improve operational efficiency, and increase the overall success rate of their campaigns. The project involves training and testing four specific machine learning algorithms—K-Nearest Neighbors, Logistic Regression, Decision Trees, and Support Vector Machines—to determine which provides the best balance of accuracy and computational efficiency.
+
+**Data:** 
+The dataset used for this analysis was sourced from the UCI Machine Learning Repository and contains data from a Portuguese retail bank collected between May 2008 and November 2010. It consists of 41,188 examples and 20 features, including client demographics (age, job, education), financial indicators (Euribor rate, consumer price index), and campaign-specific details (contact duration, number of contacts). The target variable is a binary outcome indicating whether the client subscribed to the term deposit ("yes" or "no").
+
+**Data Understanding:**
+Upon exploring the data, I identified a significant class imbalance, with approximately 89% of clients declining the offer and only 11% subscribing. This required careful consideration of evaluation metrics beyond simple accuracy. I have also noted that several categorical variables contained "unknown" values, which we treated as a distinct category to preserve potential information. To prepare the data for modeling, categorical variables were converted using One-Hot Encoding, and numerical variables were standardized to ensure fair comparisons between distance-based algorithms like KNN and SVM.
+
+**Deliverables:** 
+The main deliverable for this project was a comprehensive Jupyter Notebook and a Readme file. This includes data cleaning, exploratory data analysis, feature engineering, and the implementation of a machine learning pipeline. The notebook presents a comparative analysis of the four classifiers—Logistic Regression, K-Nearest Neighbors, Decision Trees, and Support Vector Machines—evaluating them on training time, accuracy, and their ability to generalize to unseen data.
+
+**Findings:** 
+Analysis concluded that the Logistic Regression model was the most effective classifier for this problem, achieving a test accuracy of approximately 91% while remaining computationally fast and highly interpretable. While the Support Vector Machine matched this accuracy, it was significantly slower to train. The Decision Tree suffered from overfitting, and K-Nearest Neighbors struggled with the high dimensionality of the data. From a business perspective, the model revealed that the outcome of previous marketing campaigns is the single strongest predictor of success; customers who bought before are highly likely to buy again. Additionally, macroeconomic factors play a major role, as higher Euribor interest rates were found to negatively correlate with subscription rates. Finally, call duration showed a positive correlation with success, suggesting that agents should prioritize quality engagement over call volume.
